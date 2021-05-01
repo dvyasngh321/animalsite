@@ -1,0 +1,35 @@
+
+
+3. @if(count($sub_categories)>0)
+                                <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            @endif
+
+4. {{$category->name}}
+5. @if(count($sub_categories)>0)
+6.    @foreach($sub_categories as $sub_category)
+                                <li><a href="{{route('cats',$sub_category->id)}}">{{$sub_category->name}} </a></li>
+                                @endforeach
+7.@endif
+8. @endforeach
+9.  @foreach($products as $product)
+                    @if($product->category->status==1)
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <a href="{{url('/product-detail',$product->id)}}"><img src="{{url('products/small/',$product->image)}}" alt="" /></a>
+                                    <h2>{{$product->p_name}}</h2>
+                                    <p>Rs. {{$product->price}}</p>
+                                    <div class="choose">
+                                        <ul class="nav nav-pills nav-justified">
+                                            <li><a href="#">Add To Wishlist</a></li>
+                                            <!-- <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li> -->
+                                        </ul>
+                                    </div>
+                                    <a href="{{url('/product-detail',$product->id)}}" class="btn btn-default add-to-cart">View This Pet</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                    @endforeach

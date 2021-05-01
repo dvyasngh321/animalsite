@@ -1,0 +1,41 @@
+{% extends 'post/base.html' %}
+{% load static %}
+{% block content %}<br><br>
+<section id="ind-sec-cat">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                Category is Here
+            </div>
+
+            <div class="col-sm-9 padding-right">
+                <div class="features_items">
+                    <!--features_items-->
+                    <h2 class="title text-center">Found Pet</h2>
+                      {% for file in home %} {% if file.pet_image.url %}
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <a href=""><img src ="{{ file.pet_image.url }}" ></a>
+                                    <h2>Found in: {{ file.pet_code }} </h2>
+
+
+                                    <a href="" class="btn btn-default add-to-cart">View This Pet</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+                <!--features_items-->
+
+               <!-- Ashok Dai Addition -->
+               <br>
+
+
+        </div>
+    </div>
+</section>
+{% endblock %}

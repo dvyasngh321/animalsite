@@ -1,0 +1,42 @@
+{% extends 'post/base.html' %}
+{% load static %}
+{% block content %}<br><br><br><br>
+
+<div class="container">
+
+<div class="row">
+    <h1 style="color: #d6193c;">Check Out your Favourite {{ category.title }}</h1>
+    <hr />
+    {% for post in products %}
+    <div class="col-12 col-lg-3" style="border: 1px solid rgba(224,224,224,1); margin: 10px;">
+      <div style="padding: 10px;">
+        <div class="row">
+          <div class="col-lg-5">
+            <div style="height: 120px; width: 90px;">
+              {% if post.image %}
+              <img style="width: 100%; height: 100%;" src="{{post.image.url}}" alt="post_photo">
+              {% else %}
+              <p>no image</p>
+              {% endif %}
+            </div>
+          </div>
+          <div class="col-lg-7">
+             <div>
+               <!-- <small class="text-muted" style="margin-left : 50px;">-By {{post.posted_by.profile.name}}</small> -->
+               <h5>{{post.title}}</h5>
+               <p>{{post.description|truncatechars:50}}</p>
+               <p>Category : {{post.category}}</p>
+               <a href="{% url 'product_detail' post.id%}" class="btn btn-primary" style="margin-top: -8px;">View</a>
+             </div> 
+          </div>
+        </div>
+       
+      </div>
+    </div>
+     {% endfor %} 
+</div>
+
+
+</div>
+<br><br><br><br>
+{% endblock %}

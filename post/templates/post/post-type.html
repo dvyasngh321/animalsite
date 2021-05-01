@@ -1,0 +1,33 @@
+{% extends 'post/base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .btn-primary{
+        background-color:green !important;
+        border-radius: 4px !important;
+    }
+    .btn-primary:hover{
+        background-color:#006400 !important;
+       
+    }
+</style>
+<div class="row" style="margin: 100px 0px 150px;">
+    <div class="col-md-4 col-sm-12">
+        <div class='text-center'>
+            <a class='btn btn-primary' style="padding: 15px; font-size: 20px;" href="{% url 'post-form' 'lost' %}"> Report Lost Pet</a>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+      
+        <div class='text-center'>
+            <a class='btn btn-primary' style="padding: 15px; font-size: 20px;" href="{% url 'post-form' 'found' %}">Report Found Pet</a>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-12">
+       
+        <div class='text-center'>
+            <a class='btn btn-primary' style="padding: 15px; font-size: 20px;" href="{% url 'post-form' 'sell' %}">Sell Your Pet</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

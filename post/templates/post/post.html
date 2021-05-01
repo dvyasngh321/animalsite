@@ -1,0 +1,49 @@
+{% extends 'post/base.html' %}{% block content%}
+{% load static %}
+<div class="container">
+    <div class="row" style="position:relative;">
+        <div class="col-md-6 col-sm-12" style="margin-left: auto; margin-right: auto;float: none">
+            <form id="contact" action="" method="POST">
+                <h3>Make Post About Lost/Found Pet..</h3>
+                <h4>PetaMeta Support Team</h4>
+                {% csrf_token %}
+                <fieldset>
+                    <input placeholder="Your Name" type="text" tabindex="1" name="name" required autofocus>
+                </fieldset>
+                <fieldset>
+                <label class="checkbox-inline"><input type="checkbox" value="Lost" name="status">Lost Pet </label>
+                 <label class="checkbox-inline"><input type="checkbox" value="Found" name="status">Found Pet</label>
+               </fieldset>
+                <fieldset>
+                    <input placeholder="Your Phone Number" type="text" name="phone" tabindex="2" required>
+                </fieldset>
+                 <fieldset>
+                    <input placeholder="Your E-mail" type="email" name="email" tabindex="2" required>
+                </fieldset>
+                <fieldset>
+                    <input placeholder="Location Where You Found Pet" type="text" name="location" tabindex="3" required>
+                </fieldset>
+
+                <fieldset>
+                    <select class="form-control" placeholder="Pet Categories Dog/Cat/Horse.." id="sel1" name="Categories">
+                         <option>Pet Categories Dog/Cat/Horse..</option>
+                        <option>Dog</option>
+                        <option>Cat</option>
+                        <option>Horse</option>
+                        <option>Parrot</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <textarea placeholder="Description of Pet Lost or Found...." name="description" tabindex="5" required></textarea>
+                </fieldset>
+                <fieldset>
+                    Enter the Photo of your Pet below:<input type="file" name="photo">
+                </fieldset>
+                <fieldset>
+                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'post/base.html' %}
+{% load static %}
+{% block content %}
+<h3>My Posts</h3>
+{% if posts %}
+<a href="{% url 'profile_update' %}" class="btn btn-primary" style="margin-bottom: 20px;">Update Profile</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Type</th>
+            <th scope="col">Category</th>
+            <th scope="col">Status</th>
+            <th scope="col">View Post</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in posts %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ post.title }}</td>
+            <td>{{ post.get_post_type_display }}</td>
+            <td>{{ post.category }}</td>
+            <td>{{ post.is_active|yesno:"Active,Inactive,Unknown" }} {% if post.is_active %} <a class='btn btn-warning ml-0 float-right' href="?deactivate={{ post.id }}">Deactivate</a>{% endif %}</td>
+            <td><a href="{% url 'post-detail' post.id %}" class='btn btn-default'>View</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No posts till Now</p>
+{% endif %}
+
+{% endblock %}

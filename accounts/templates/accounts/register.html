@@ -1,0 +1,30 @@
+{% extends 'post/base.html' %}
+{% load static %}
+{% block content %}<br><br>
+<section id="ind-sec-cat">
+    <div class="container">
+<div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="signup-form"><!--sign up form-->
+                    <h2>New User Signup!</h2>
+                    <form method="POST" class="form-horizontal">
+                        {% csrf_token %}
+                        <label>Username: </label><input type="text" placeholder="Name" name="username"/>
+                        <label>Full Name: </label><input type="text" placeholder="Name" name="name"/>
+                       <label>Contact Number:</label> <input type="text" placeholder="Contact Number" name="contact" />
+                        <label>Email Address:</label><input type="email" placeholder="Email Address" name="email" />
+                       <label>Password:</label> <input type="password" placeholder="Password" name="password1" />
+                      <label>Conform Password: </label>  <input type="password" placeholder="Confirm Password" name="password2"/>
+                        <button type="submit" class="btn btn-default">Signup</button> <a href="btn btn-default float-right">New User?</a>
+                    </form>
+                </div><!--/sign up form-->
+            </div>
+        </div>
+    </div>
+
+    </div>
+</section>
+{% endblock %}
